@@ -1,0 +1,56 @@
+<html>
+<body>
+<h1>Details</h1><br/><br/>
+<lable>Name: </lable><%response.write(request.querystring("fname"))%><br/>
+<lable>telephone Number: </lable><%response.write(request.querystring("pno"))%><br/>
+<table>
+<tr>
+    <th>Car</th>
+    <th>Price</th>
+    <th>Interest Rate</th>
+    <th>Duration of payment</th>
+    <th>Monthly Installment</th>
+</tr>
+<tr>
+    <td><%response.write(request.querystring("cars"))%></td>
+    <td><%
+car=request.querystring("cars")
+m=request.querystring("month")
+IF car="ford" then p=15000
+End IF
+IF car="mercedes" then p=40000
+End IF
+IF car="toyota" then p=17000
+End IF
+response.write(p)
+%></td>
+    <td><% m=request.querystring("month")
+IF month=6 then ir=2
+End IF
+IF month=12 then ir=4
+End IF
+response.write(ir)
+%></td>
+    <td><%response.write(request.querystring("month"))%></td>
+    <td><%
+car=request.querystring("cars")
+m=request.querystring("month")
+IF car="ford" then p=15000
+End IF
+IF car="mercedes" then p=40000
+End IF
+IF car="toyota" then p=17000
+End IF
+IF month=6 then ir=2
+End IF
+IF month=12 then ir=4
+End IF
+mi=p+(i*ir/100)/m
+response.write(mi)
+%></td>
+</tr>
+</table>
+<br/>
+<a href="default.html">Go Back</a>
+</body>
+</html>
